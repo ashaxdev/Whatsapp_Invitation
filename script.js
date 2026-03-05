@@ -36,7 +36,6 @@ msg.classList.add("message")
 
 let isVideo = false
 
-
 /* TEXT MESSAGE */
 
 if(data.type === "boy" || data.type === "girl"){
@@ -45,7 +44,6 @@ msg.classList.add(data.type)
 msg.innerHTML = data.text + "<span class='tick'>✔✔</span>"
 
 }
-
 
 /* PHOTO */
 
@@ -59,8 +57,7 @@ msg.appendChild(img)
 
 }
 
-
-/* VIDEO */
+/* VIDEO MESSAGE */
 
 else if(data.type === "video"){
 
@@ -84,6 +81,7 @@ chat.appendChild(msg)
 chat.scrollTop = chat.scrollHeight
 
 let sound = document.getElementById("msgSound")
+
 if(sound){
 sound.play().catch(()=>{})
 }
@@ -107,21 +105,27 @@ setTimeout(showMessage,2000)
 }
 
 
-/* VIDEO FULLSCREEN POPUP */
+/* VIDEO FULLSCREEN */
 
 function openVideo(src){
 
 const popup = document.getElementById("videoPopup")
 const video = document.getElementById("popupVideo")
+const audio = document.getElementById("msgSound")
+
+/* STOP CHAT AUDIO */
+audio.pause()
 
 popup.style.display = "flex"
 video.src = src
 video.play()
 
-/* when video ends */
+/* WHEN VIDEO ENDS */
+
 video.onended = () => {
+
 closeVideo()
-setTimeout(showMessage,1000)
+
 }
 
 }
@@ -133,16 +137,21 @@ function closeVideo(){
 
 const popup = document.getElementById("videoPopup")
 const video = document.getElementById("popupVideo")
+const audio = document.getElementById("msgSound")
 
 video.pause()
 popup.style.display = "none"
+
+/* RESUME CHAT AUDIO */
+audio.currentTime = 0
+audio.play().catch(()=>{})
 
 setTimeout(showMessage,1000)
 
 }
 
 
-/* INVITATION SHOW */
+/* INVITATION POPUP */
 
 function showInvite(){
 
