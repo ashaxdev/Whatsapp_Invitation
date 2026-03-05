@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Wedding Invite</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="phone">
+
+<div class="header">
+
+<img src="3.jpeg" class="profile">
+
+<div>
+<h3>Jaison ❤️ Asha</h3>
+<span class="status">online</span>
+</div>
+
+</div>
+
+<div id="chat" class="chat"></div>
+
+<div id="typing" class="typing hidden">
+<span></span><span></span><span></span>
+</div>
+
+</div>
+
+
+<!-- INVITATION IMAGE POPUP -->
+
+<div id="invitePopup" class="invite-popup">
+
+<img src="invitation.jpeg" class="invite-image">
+
+</div>
+
+
+<audio id="msgSound">
+<source src="Anbil-Avan.mp3" type="audio/mpeg">
+</audio>
+
+<script src="script.js"></script>
+<div id="videoPopup" class="video-popup">
+
+<button class="close-video" onclick="closeVideo()">✕</button>
+
+<video id="popupVideo" controls></video>
+
+</div>
+
+</body>
+</html>
+
